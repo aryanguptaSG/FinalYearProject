@@ -1,0 +1,22 @@
+import React from "react";
+
+const ProfileIcon = props => {
+    const { height = "18", width = "18", color = "white" } = props;
+    return (
+        <svg
+            className='h-4 w-4'
+            viewBox='0 0 20 20'
+            height={height}
+            width={width}
+            fill={color}
+        >
+            <path
+                fillRule='evenodd'
+                d='M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z'
+                clip-rule='evenodd'
+            />
+        </svg>
+    );
+};
+
+export default ProfileIcon;

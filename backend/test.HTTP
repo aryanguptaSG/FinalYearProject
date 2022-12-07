@@ -1,0 +1,179 @@
+GET  http://localhost:3001
+
+###
+
+//signup as Customer
+POST http://localhost:3001/signup/c
+Content-Type: application/json
+
+{
+   "email":"Aryan@gmail.com",
+   "pass":"1234"
+}
+
+####
+
+//signup as Worker
+POST http://localhost:3001/signup/w
+Content-Type: application/json
+
+{
+   "email":"Aryan@gmail.com",
+   "pass":"1234"
+}
+
+####
+
+//Login as Customer
+POST http://localhost:3001/login/c
+Content-Type: application/json
+
+{
+   "email":"Aryan@gmail.com",
+   "pass":"1234"
+}
+
+####
+
+//login as Worker
+POST http://localhost:3001/login/w
+Content-Type: application/json
+
+{
+   "email":"Aryan@gmail.com",
+   "pass":"1234"
+}
+####
+
+//Update customer Profile 
+PUT  http://localhost:3001/update-profile/c
+Content-Type: application/json
+
+
+{
+    "authToken" : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzODNhMzU5ODkxMTgzYzQxNzc5NWVkYyIsImlhdCI6MTY2OTU3MTQ0NSwiZXhwIjoxNjY5NjU3ODQ1fQ._7LWRKdIRCpkzQqT9eMYQajCpJe3g0ZgiGciVPY5LZw",
+   "Name":"Aryan Gupta",
+   "Phone": "9305937113",
+   "Location": ""
+}
+
+
+###
+//Update customer Worker
+PUT  http://localhost:3001/update-profile/w
+Content-Type: application/json
+
+
+{
+   "authToken" : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNzhjYTAzOWY0OWU0ZDFiZGE0NmVlYSIsImlhdCI6MTY2OTQ1MTAzNCwiZXhwIjoxNjY5NTM3NDM0fQ.ZbZ4BsIVrXTuZpd2VA_739BZj4iXmw77LPaiIRDQ5V4",
+   "Email":"Aryan@gmail.com",
+   "Name":"Aryan",
+   "Phone": "9305937113",
+   "Location": "",
+   "Profession":"",
+   "Price":""
+}
+
+
+###
+
+DELETE  http://localhost:3001/delete-profile/c
+Content-Type: application/json
+
+{
+  "authToken" : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzODNhMzU5ODkxMTgzYzQxNzc5NWVkYyIsImlhdCI6MTY2OTU3MTQ0NSwiZXhwIjoxNjY5NjU3ODQ1fQ._7LWRKdIRCpkzQqT9eMYQajCpJe3g0ZgiGciVPY5LZw"
+}
+
+###
+
+DELETE  http://localhost:3001/delete-profile/w
+Content-Type: application/json
+
+{
+   "authToken" : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzODNhMzYyODkxMTgzYzQxNzc5NWVkZiIsImlhdCI6MTY2OTU3MTU2NiwiZXhwIjoxNjY5NjU3OTY2fQ.MqrPHQsq5MACK_W80Vr44wF75OyEF27T1uup4sIhv40"
+}
+
+
+###
+
+// Add Rating to a worker .
+POST  http://localhost:3001/order/rate
+Content-Type: application/json
+
+{
+   "authToken" : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzOGVmOGI5ZDQ4NjI5Yjk3ZTEzNDM4ZiIsImlhdCI6MTY3MDMxNzE3NywiZXhwIjoxNjcwNDAzNTc3fQ.jpDMHkvKoDqjRebrIowPp5smJThaGqE_HgtYy4WdGtc",
+   "uid":"638f0103d48629b97e13439f",
+   "rate":5
+}
+
+###
+
+// Search for Worker .
+POST http://localhost:3001/order/search
+Content-Type: application/json
+
+{
+   "authToken" : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzOGVmOGI5ZDQ4NjI5Yjk3ZTEzNDM4ZiIsImlhdCI6MTY3MDMxNzE3NywiZXhwIjoxNjcwNDAzNTc3fQ.jpDMHkvKoDqjRebrIowPp5smJThaGqE_HgtYy4WdGtc",
+   "profession":"electrician",
+   "pinCode":240057
+}
+
+###
+
+// place a order
+POST http://localhost:3001/order/place-order
+Content-Type: application/json
+
+{
+   "authToken" : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzOGVmOGI5ZDQ4NjI5Yjk3ZTEzNDM4ZiIsImlhdCI6MTY3MDMxNzE3NywiZXhwIjoxNjcwNDAzNTc3fQ.jpDMHkvKoDqjRebrIowPp5smJThaGqE_HgtYy4WdGtc",
+   "date":"1 Dec 2022" ,
+   "customer_id":"638f041dd48629b97e1343bd" ,
+   "worker_id": "638ef8b9d48629b97e13438f",
+   "status":"Panding" ,
+   "paymentStatus": "Panding",
+   "msg":"Important Task !"
+}
+
+###
+// update request status of a order
+POST http://localhost:3001/order/update-request-status
+Content-Type: application/json
+
+{
+   "authToken" : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzOGVmOGI5ZDQ4NjI5Yjk3ZTEzNDM4ZiIsImlhdCI6MTY3MDMxNzE3NywiZXhwIjoxNjcwNDAzNTc3fQ.jpDMHkvKoDqjRebrIowPp5smJThaGqE_HgtYy4WdGtc",
+   "oid":"639000f9f29f4362d2f1f110",
+   "requestStatus":"Accepted"
+}
+
+###
+// update status of a order
+POST http://localhost:3001/order/update-status
+Content-Type: application/json
+
+{
+   "authToken" : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzOGVmOGI5ZDQ4NjI5Yjk3ZTEzNDM4ZiIsImlhdCI6MTY3MDMxNzE3NywiZXhwIjoxNjcwNDAzNTc3fQ.jpDMHkvKoDqjRebrIowPp5smJThaGqE_HgtYy4WdGtc",
+   "oid":"639000f9f29f4362d2f1f110",
+   "status":"Started"
+}
+
+
+###
+// get all orders related to a customer
+POST http://localhost:3001/order/get-c
+Content-Type: application/json
+
+{
+   "authToken" : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzOGVmOGI5ZDQ4NjI5Yjk3ZTEzNDM4ZiIsImlhdCI6MTY3MDMxNzE3NywiZXhwIjoxNjcwNDAzNTc3fQ.jpDMHkvKoDqjRebrIowPp5smJThaGqE_HgtYy4WdGtc",
+   "customer_id":"638f041dd48629b97e1343bd"
+}
+
+
+###
+// get all orders related to a worker
+POST http://localhost:3001/order/get-w
+Content-Type: application/json
+
+{
+   "authToken" : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzOGVmOGI5ZDQ4NjI5Yjk3ZTEzNDM4ZiIsImlhdCI6MTY3MDMxNzE3NywiZXhwIjoxNjcwNDAzNTc3fQ.jpDMHkvKoDqjRebrIowPp5smJThaGqE_HgtYy4WdGtc",
+   "worker_id":"638ef8b9d48629b97e13438f"
+}
